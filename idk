@@ -1,0 +1,27 @@
+local TOOL_ASSET_ID = 18474459 -- Example: 18474459 for LinkedSword
+
+local InsertService = game:GetService("InsertService")
+local tool
+pcall(function()
+	tool = InsertService:LoadAsset(TOOL_ASSET_ID)
+end)
+
+if tool then
+	-- Find the Tool instance inside the inserted model
+	local toolInstance
+	for _, obj in ipairs(tool:GetChildren()) do
+		if obj:IsA("Tool") then
+			toolInstance = obj
+			break
+		end
+	end
+	if toolInstance then
+		toolInstance.Parent = game:GetService("StarterPack")
+		print("Tool inserted into StarterPack!")
+	else
+		warn("No Tool found in asset!")
+		tool.Parent = workspace -- fallback: insert whole model to workspace
+	end
+else
+	warn("Failed to insert asset. Check the asset ID and permissions.")
+end
