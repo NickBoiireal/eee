@@ -42,8 +42,8 @@ local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.Position = UDim2.new(0, 0, 0, 0)
 Title.Text = "Super Ring Parts V6 by lukas"
-Title.TextColor3 = Color3(0, 0, 0)
-Title.BackgroundColor3 = Color3(0, 204, 204)
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.BackgroundColor3 = Color3.fromRGB(0, 204, 204)
 Title.Font = Enum.Font.Fondamento
 Title.TextSize = 22
 Title.Parent = MainFrame
@@ -57,8 +57,8 @@ local ToggleButton = Instance.new("TextButton")
 ToggleButton.Size = UDim2.new(0.8, 0, 0, 40)
 ToggleButton.Position = UDim2.new(0.1, 0, 0.1, 0)
 ToggleButton.Text = "Ring Off"
-ToggleButton.BackgroundColor3 = Color3(255, 0, 0)
-ToggleButton.TextColor3 = Color3(0, 0, 0)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 ToggleButton.Font = Enum.Font.Fondamento
 ToggleButton.TextSize = 18
 ToggleButton.Parent = MainFrame
@@ -98,7 +98,7 @@ local function createControl(name, positionY, color, labelText, defaultValue, ca
     DecreaseButton.Position = UDim2.new(0.1, 0, positionY, 0)
     DecreaseButton.Text = "-"
     DecreaseButton.BackgroundColor3 = color
-    DecreaseButton.TextColor3 = Color3(0, 0, 0)
+    DecreaseButton.TextColor3 = Color3.fromRGB(0, 0, 0)
     DecreaseButton.Font = Enum.Font.Fondamento
     DecreaseButton.TextSize = 18
     DecreaseButton.Parent = MainFrame
@@ -108,7 +108,7 @@ local function createControl(name, positionY, color, labelText, defaultValue, ca
     IncreaseButton.Position = UDim2.new(0.7, 0, positionY, 0)
     IncreaseButton.Text = "+"
     IncreaseButton.BackgroundColor3 = color
-    IncreaseButton.TextColor3 = Color3(0, 0, 0)
+    IncreaseButton.TextColor3 = Color3.fromRGB(0, 0, 0)
     IncreaseButton.Font = Enum.Font.Fondamento
     IncreaseButton.TextSize = 18
     IncreaseButton.Parent = MainFrame
@@ -117,8 +117,8 @@ local function createControl(name, positionY, color, labelText, defaultValue, ca
     Display.Size = UDim2.new(0.4, 0, 0, 40)
     Display.Position = UDim2.new(0.3, 0, positionY, 0)
     Display.Text = labelText .. ": " .. defaultValue
-    Display.BackgroundColor3 = Color3(255, 153, 51)
-    Display.TextColor3 = Color3(0, 0, 0)
+    Display.BackgroundColor3 = Color3.fromRGB(255, 153, 51)
+    Display.TextColor3 = Color3.fromRGB(0, 0, 0)
     Display.Font = Enum.Font.Fondamento
     Display.TextSize = 18
     Display.Parent = MainFrame
@@ -128,8 +128,8 @@ local function createControl(name, positionY, color, labelText, defaultValue, ca
     TextBox.Size = UDim2.new(0.8, 0, 0, 35)
     TextBox.Position = UDim2.new(0.1, 0, positionY + 0.1, 0)
     TextBox.PlaceholderText = "Enter " .. labelText
-    TextBox.BackgroundColor3 = Color3(0, 0, 255)
-    TextBox.TextColor3 = Color3(0, 0, 0)
+    TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+    TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
     TextBox.Font = Enum.Font.Fondamento
     TextBox.TextSize = 18
     TextBox.Parent = MainFrame
@@ -173,22 +173,22 @@ local function createControl(name, positionY, color, labelText, defaultValue, ca
     end)
 end
 
-createControl("Radius", 0.2, Color3(153, 153, 0), "Radius", config.radius, function(value)
+createControl("Radius", 0.2, Color3.fromRGB(153, 153, 0), "Radius", config.radius, function(value)
     config.radius = value
     saveConfig()
 end)
 
-createControl("Height", 0.4, Color3(153, 0, 153), "Height", config.height, function(value)
+createControl("Height", 0.4, Color3.fromRGB(153, 0, 153), "Height", config.height, function(value)
     config.height = value
     saveConfig()
 end)
 
-createControl("RotationSpeed", 0.6, Color3(0, 153, 153), "Rotation Speed", config.rotationSpeed, function(value)
+createControl("RotationSpeed", 0.6, Color3.fromRGB(0, 153, 153), "Rotation Speed", config.rotationSpeed, function(value)
     config.rotationSpeed = value
     saveConfig()
 end)
 
-createControl("AttractionStrength", 0.8, Color3(153, 0, 0), "Attraction Strength", config.attractionStrength, function(value)
+createControl("AttractionStrength", 0.8, Color3.fromRGB(153, 0, 0), "Attraction Strength", config.attractionStrength, function(value)
     config.attractionStrength = value
     saveConfig()
 end)
@@ -198,8 +198,8 @@ local MinimizeButton = Instance.new("TextButton")
 MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
 MinimizeButton.Position = UDim2.new(1, -35, 0, 5)
 MinimizeButton.Text = "-"
-MinimizeButton.BackgroundColor3 = Color3(255, 255, 0)
-MinimizeButton.TextColor3 = Color3(0, 0, 0)
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+MinimizeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 MinimizeButton.Font = Enum.Font.Fondamento
 MinimizeButton.TextSize = 15
 MinimizeButton.Parent = MainFrame
@@ -409,7 +409,7 @@ end)
 ToggleButton.MouseButton1Click:Connect(function()
     ringPartsEnabled = not ringPartsEnabled
     ToggleButton.Text = ringPartsEnabled and "Tornado On" or "Tornado Off"
-    ToggleButton.BackgroundColor3 = ringPartsEnabled and Color3(50, 205, 50) or Color3(160, 82, 45)
+    ToggleButton.BackgroundColor3 = ringPartsEnabled and Color3.fromRGB(50, 205, 50) or Color3.fromRGB(160, 82, 45)
     playSound("12221967")
 end)
 
@@ -461,14 +461,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "Fly gui"
-TextButton1.BackgroundColor3 = Color3(0,0,255)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,255)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(1,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "Fly Gui"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -484,14 +484,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "no fall damage"
-TextButton1.BackgroundColor3 = Color3(255,0,0)
+TextButton1.BackgroundColor3 = Color3.fromRGB(255,0,0)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.9,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "No fall Damage"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -536,14 +536,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "noclip"
-TextButton1.BackgroundColor3 = Color3(0,0,0)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,0)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.8,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "Noclip"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -583,14 +583,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "Inf jump"
-TextButton1.BackgroundColor3 = Color3(0,255,0)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,255,0)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.7,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "Inf jump"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -607,14 +607,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "Inf yield"
-TextButton1.BackgroundColor3 = Color3(0,255,255)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,255,255)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.6,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "Inf yield"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -631,14 +631,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "nameless admin"
-TextButton1.BackgroundColor3 = Color3(0,0,0)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,0)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.5,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "NAMELESS"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
@@ -655,14 +655,14 @@ end)
 local TextButton1 = Instance.new("TextButton") 
 TextButton1.Parent = MainFrame
 TextButton1.Name = "FPS"
-TextButton1.BackgroundColor3 = Color3(0,0,0)
+TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,0)
 TextButton1.BackgroundTransparency = 0
 TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3(17,17,17)
+TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
 TextButton1.Position = UDim2.new(0.4,0,1)
 TextButton1.Size = UDim2.new(0.08,0,0.1)
 TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3(242,243,243)
+TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
 TextButton1.Text = "FPS"
 TextButton1.TextSize = 18
 TextButton1.TextScaled = true
