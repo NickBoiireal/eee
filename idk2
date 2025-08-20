@@ -42,7 +42,7 @@ local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.Position = UDim2.new(0, 0, 0, 0)
 Title.Text = "Super Ring Parts V6 by lukas"
-Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextColor3 = Color3(0, 0, 0)
 Title.BackgroundColor3 = Color3(0, 204, 204)
 Title.Font = Enum.Font.Fondamento
 Title.TextSize = 22
@@ -57,8 +57,8 @@ local ToggleButton = Instance.new("TextButton")
 ToggleButton.Size = UDim2.new(0.8, 0, 0, 40)
 ToggleButton.Position = UDim2.new(0.1, 0, 0.1, 0)
 ToggleButton.Text = "Ring Off"
-ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleButton.BackgroundColor3 = Color3(255, 0, 0)
+ToggleButton.TextColor3 = Color3(0, 0, 0)
 ToggleButton.Font = Enum.Font.Fondamento
 ToggleButton.TextSize = 18
 ToggleButton.Parent = MainFrame
@@ -532,52 +532,6 @@ nofalldamage(lp.Character)
     lp.CharacterAdded:Connect(nofalldamage)
 end)
 
--- noclip
-local TextButton1 = Instance.new("TextButton") 
-TextButton1.Parent = MainFrame
-TextButton1.Name = "noclip"
-TextButton1.BackgroundColor3 = Color3.fromRGB(0,0,0)
-TextButton1.BackgroundTransparency = 0
-TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
-TextButton1.Position = UDim2.new(0.8,0,1)
-TextButton1.Size = UDim2.new(0.08,0,0.1)
-TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
-TextButton1.Text = "Noclip"
-TextButton1.TextSize = 18
-TextButton1.TextScaled = true
-TextButton1.TextWrapped = true
-TextButton1.Visible = true
-TextButton1.Active = true
-
-TextButton1.MouseButton1Click:Connect(function() 
-local Noclip = nil
-local Clip = nil
-
-function noclip()
-	Clip = false
-	local function Nocl()
-		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
-			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
-					v.CanCollide = false
-				end
-			end
-		end
-		wait(0.21) -- basic optimization
-	end
-	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
-end
-
-function clip()
-	if Noclip then Noclip:Disconnect() end
-	Clip = true
-end
-
-noclip() -- to toggle noclip() and clip()
-end)
-
 -- Inf jump
 
 local TextButton1 = Instance.new("TextButton") 
@@ -601,31 +555,6 @@ TextButton1.Active = true
 TextButton1.MouseButton1Click:Connect(function() 
 local InfiniteJumpEnabled = true game:GetService("UserInputService").JumpRequest:connect(function() 	if InfiniteJumpEnabled then 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping") 	end end)
 end)
-
--- Inf yield
-
-local TextButton1 = Instance.new("TextButton") 
-TextButton1.Parent = MainFrame
-TextButton1.Name = "Inf yield"
-TextButton1.BackgroundColor3 = Color3.fromRGB(0,255,255)
-TextButton1.BackgroundTransparency = 0
-TextButton1.BorderSizePixel = 1
-TextButton1.BorderColor3 = Color3.fromRGB(17,17,17)
-TextButton1.Position = UDim2.new(0.6,0,1)
-TextButton1.Size = UDim2.new(0.08,0,0.1)
-TextButton1.Font = Enum.Font.Legacy
-TextButton1.TextColor3 = Color3.fromRGB(242,243,243)
-TextButton1.Text = "Inf yield"
-TextButton1.TextSize = 18
-TextButton1.TextScaled = true
-TextButton1.TextWrapped = true
-TextButton1.Visible = true
-TextButton1.Active = true
-
-TextButton1.MouseButton1Click:Connect(function() 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
 -- nameless admin
 
 local TextButton1 = Instance.new("TextButton") 
