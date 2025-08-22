@@ -12743,6 +12743,10 @@ addcmd('reloadplugin',{},function(args, speaker)
 	addPlugin(pluginName)
 end)
 
+addcmd('naturaldisastersurvival', {'nds'}, function (args, speaker)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NickBoiireal/eee/refs/heads/main/idk3"))()
+end)
+
 addcmd("addallplugins", {"loadallplugins"}, function(args, speaker)
     if not listfiles or not isfolder then
         notify("Incompatible Exploit", "Your exploit does not support this command (missing listfiles/isfolder)")
