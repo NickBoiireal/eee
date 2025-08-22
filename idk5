@@ -1,0 +1,53 @@
+local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "MyScreenGui"
+screenGui.Parent = playerGui
+
+local myFrame = Instance.new("Frame")
+myFrame.Name = "MyFrame"
+myFrame.Size = UDim2.new(0.2, 0, 0.2, 0) -- Example size
+myFrame.Position = UDim2.new(0.5, 0, 0.5, 0) -- Example position
+myFrame.AnchorPoint = Vector2.new(0.5, 0.5) -- Center anchor
+myFrame.Parent = screenGui
+
+local TextButton1 = Instance.new("TextButton")
+TextButton1.Name = "MyButton"
+TextButton1.Size = UDim2.new(0.5, 0, 0.2, 0)
+TextButton1.Position = UDim2.new(0.5, 0, 0.8, 0)
+TextButton1.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton1.Text = "Click Me!"
+TextButton1.Parent = myFrame
+
+TextButton1.MouseButton1Click:Connect(function() 
+screenGui:Destroy()
+
+local runsvc = game:GetService("RunService")
+local heartbeat = runsvc.Heartbeat
+local rstepped = runsvc.RenderStepped
+
+local lp = game.Players.LocalPlayer
+
+local novel = Vector3.zero
+
+local function nofalldamage(chr)
+    local root = chr:WaitForChild("HumanoidRootPart")
+    
+    if root then
+        local con
+        con = heartbeat:Connect(function()
+            if not root.Parent then
+                con:Disconnect()
+            end
+            
+            local oldvel = root.AssemblyLinearVelocity
+            root.AssemblyLinearVelocity = novel
+            
+            rstepped:Wait()
+            root.AssemblyLinearVelocity = oldvel
+        end)
+    end
+end
+
+nofalldamage(lp.Character)
+    lp.CharacterAdded:Connect(nofalldamage)
+end)
