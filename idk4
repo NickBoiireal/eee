@@ -4828,7 +4828,7 @@ CMDs[#CMDs + 1] = {NAME = 'unlistento', DESC = 'Disables listento'}
 CMDs[#CMDs + 1] = {NAME = 'jerk', DESC = 'Makes you jork it'}
 CMDs[#CMDs + 1] = {NAME = 'unsuspendvc', DESC = 'Unsuspends you from voice chat'}
 CMDs[#CMDs + 1] = {NAME = 'naturaldisastersurvival / nds', DESC = 'Opens the NDS GUI'}
-CMDs[#CMDs + 1] = {NAME = 'nofalldamage / nofall', DESC = 'Disables fall damage (ONLY USE IN NDS)'}
+-- CMDs[#CMDs + 1] = {NAME = 'nofalldamage / nofall', DESC = 'Disables fall damage (ONLY USE IN NDS)'}
 wait()
 
 for i = 1, #CMDs do
@@ -12747,37 +12747,6 @@ end)
 
 addcmd('naturaldisastersurvival', {'nds'}, function (args, speaker)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/NickBoiireal/eee/refs/heads/main/idk3"))()
-end)
-
-addcmd('nofalldamage, {'nofall'}, function (args, speaker)
-    local runsvc = game:GetService("RunService")
-    local heartbeat = runsvc.Heartbeat
-    local rstepped = runsvc.RenderStepped
-    local lp = game.Players.LocalPlayer
-    local novel = Vector3.zero
-
-    local function nofalldamage(chr)
-        local root = chr:WaitForChild("HumanoidRootPart")
-    
-        if root then
-            local con
-            con = heartbeat:Connect(function()
-                if not root.Parent then
-                    con:Disconnect()
-                end
-            
-                local oldvel = root.AssemblyLinearVelocity
-                root.AssemblyLinearVelocity = novel
-            
-                rstepped:Wait()
-                root.AssemblyLinearVelocity = oldvel
-            end)
-        end
-    end
-
-    nofalldamage(lp.Character)
-        lp.CharacterAdded:Connect(nofalldamage)
-    end)
 end)
 
 addcmd("addallplugins", {"loadallplugins"}, function(args, speaker)
